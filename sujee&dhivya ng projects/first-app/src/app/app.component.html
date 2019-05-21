@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-10">
+                <h2>Welcome to our first app</h2>
+        </div>
+    </div>
+</div>
+<hr>
+<!----
+<div app-servers></div>-->
+<div class="app-servers"></div>
+
+<p>
+    <app-server></app-server>
+    
+</p>
+<!----
+<input type="text" [(ngModel)]="name">
+<p>{{name}}
+</p>-->
+<!----
+
+<input type ="text" class ="form-control" (input)="onUpdateServerName($event)">
+<p>{{serverName}}</p>-->
+<label>ServerName</label>
+<input type ="text" class ="form-control" [(ngModel)]="serverName">
+
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+<!----<p [innerText]="allowNewServer"></p>-->
+<!----<p>{{serverCreationStatus}}</p>-->
+<p *ngIf="serverCreated">Server was created,server name is {{serverName}}</p>
+<app-server *ngFor ="let server of servers"></app-server>
